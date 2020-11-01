@@ -1,19 +1,26 @@
 import { createStore } from 'redux'
+import { ActionTypes, IActions } from './actions'
 
-const defaultState = {
+interface IState {
+    todos: string[]
+}
+
+const defaultState : IState = {
     todos:[]
 }
 
-const addToDoState = (state, todo) => {
+const addToDoState = (state: IState, 
+    todo: string): IState => {
     let todos = state.todos.slice()
     todos.push(todo)
 
     return Object.assign(state, {todos})
 }
 
-const todosReducer = (state = defaultState, action) => {
+const todosReducer = (state: IState = defaultState, 
+    action: IActions): IState  => {
     switch(action.type) {
-        case 'ADD_TODO': 
+        case ActionTypes.ADD_TODO: 
             return addToDoState(state, action.payload)
         default: 
             return state
