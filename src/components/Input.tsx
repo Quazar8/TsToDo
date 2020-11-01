@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { addTodoAction, IActions } from '../store/actions'
 
 const InputView = ({onAddClick}): JSX.Element => {
+    const [inputVal, setInputVal] = useState('')
+
     return (
         <section className="input-container">
             <input type="text" />
