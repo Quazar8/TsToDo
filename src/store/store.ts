@@ -28,6 +28,9 @@ const todosReducer = (state: IState = defaultState,
 }
 
 const store = createStore(todosReducer)
+store.subscribe(() => {
+    console.log(store.getState())
+})
 export {
     store
 }
