@@ -14,7 +14,7 @@ const addToDoState = (state: IState,
     let todos = state.todos.slice()
     todos.push(todo)
 
-    return Object.assign(state, {todos})
+    return Object.assign({}, state, {todos})
 }
 
 const todosReducer = (state: IState = defaultState, 
@@ -29,8 +29,9 @@ const todosReducer = (state: IState = defaultState,
 
 const store = createStore(todosReducer)
 store.subscribe(() => {
-    console.log(store.getState())
+    console.log("from store", store.getState())
 })
 export {
-    store
+    store,
+    IState
 }
