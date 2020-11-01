@@ -9,8 +9,16 @@ interface IAddToDoAction {
 
 type IActions = IAddToDoAction
 
+const addTodoAction = (text: string) : IAddToDoAction => {
+    return {
+        type: ActionTypes.ADD_TODO,
+        payload: text
+    }
+}
+
 export {
     ActionTypes,
     IAddToDoAction,
-    IActions
+    IActions,
+    addTodoAction
 }
