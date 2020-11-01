@@ -7,14 +7,14 @@ interface IAddToDoAction {
     payload: string
 }
 
-type IActions = IAddToDoAction
-
 const addTodoAction = (text: string) : IAddToDoAction => {
     return {
         type: ActionTypes.ADD_TODO,
         payload: text
     }
 }
+
+type IActions = IAddToDoAction
 
 export {
     ActionTypes,

@@ -27,4 +27,7 @@ const todosReducer = (state: IState = defaultState,
     }
 }
 
-export default createStore(todosReducer)
+const store = createStore(todosReducer)
+export {
+    store
+}
