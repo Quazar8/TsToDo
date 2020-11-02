@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { connect, ConnectedProps } from 'react-redux'
 import { IState } from '../store/store'
 
 import ToDoRow from './ToDoRow'
@@ -8,8 +8,23 @@ interface IToDosContainerState {
     todos: string[]
 }
 
+const mapStateToProps = 
+    (state: IState): IToDosContainerState => {
+    return {
+        todos: state.todos
+    }
+}
+
+const connector = connect(mapStateToProps)
+
+type ReduxProps = ConnectedProps<typeof connector>
+
+type Props = ReduxProps & {
+    todos: string[]
+}
+
 const ToDosContainerView = 
-    ({ todos }): JSX.Element => {
+    ({ todos }: Props): JSX.Element => {
 
     const renderTodos = (todo: string): JSX.Element => {
         return (
@@ -26,13 +41,7 @@ const ToDosContainerView =
     )
 }
 
-const mapStateToProps = 
-    (state: IState): IToDosContainerState => {
-    return {
-        todos: state.todos
-    }
-}
 
-const ToDosContainer = connect(mapStateToProps)(ToDosContainerView)
+const ToDosContainer = connector(ToDosContainerView)
 
 export default ToDosContainer
