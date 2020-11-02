@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { IState } from '../store/store'
 
+import ToDoRow from './ToDoRow'
+
 interface IToDosContainerState {
     todos: string[]
 }
@@ -11,7 +13,7 @@ const ToDosContainerView =
 
     const renderTodos = (todo: string): JSX.Element => {
         return (
-            <div>{todo}</div>
+            <ToDoRow todo={todo} />
         )
     }
     return (
