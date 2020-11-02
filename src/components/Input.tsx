@@ -1,16 +1,29 @@
 import React, {Dispatch, 
        useState, ChangeEvent } from 'react'
-import { connect } from 'react-redux'
+import { connect, ConnectedProps } from 'react-redux'
 import { addTodoAction, IActions } from '../store/actions'
 
-const InputView = ({ addToDo }): JSX.Element => {
+const mapDispatchToProps = (dispatch: Dispatch<IActions>) => {
+    return {
+        addToDo: (todo: string): void => {
+            dispatch(addTodoAction(todo))
+        }
+    }
+}
+
+const connector = connect(null, mapDispatchToProps)
+
+type Props = ConnectedProps<typeof connector>
+
+const InputView = ({ addToDo }: Props): JSX.Element => {
     const [inputVal, setInputVal] = useState('')
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = 
+        (e: ChangeEvent<HTMLInputElement>): void => {
         setInputVal(e.target.value)
     }
 
-    const handleClick = () => {
+    const handleClick = (): void => {
         addToDo(inputVal)
     }
     return (
@@ -21,14 +34,8 @@ const InputView = ({ addToDo }): JSX.Element => {
     )
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<IActions>) => {
-    return {
-        addToDo: (todo: string) => {
-            dispatch(addTodoAction(todo))
-        }
-    }
-}
 
-const Input = connect(null, mapDispatchToProps)(InputView)
+
+const Input = connector(InputView)
 
 export default Input
