@@ -1,5 +1,5 @@
 import React, {Dispatch, 
-       useState, ChangeEvent } from 'react'
+       useState, ChangeEvent, KeyboardEvent } from 'react'
 import { connect, ConnectedProps } from 'react-redux'
 import { addTodoAction, IActions } from '../store/actions'
 
@@ -28,11 +28,16 @@ const InputView = ({ addToDo }: Props): JSX.Element => {
         addToDo(inputVal)
         setInputVal(defaultState)
     }
+
+    const handleKeyUp = (e: KeyboardEvent): void => {
+        if(e.key === 'Enter') handleClick()
+    }
     return (
         <section className="input-container">
             <input type="text"
                  onChange={handleChange}
                  value={inputVal}
+                 onKeyUp={handleKeyUp}
             />
             <input onClick={handleClick} type="submit" value="Add" />
         </section>
