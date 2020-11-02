@@ -4,12 +4,8 @@ import { IState } from '../store/store'
 
 import ToDoRow from './ToDoRow'
 
-interface IToDosContainerState {
-    todos: string[]
-}
-
 const mapStateToProps = 
-    (state: IState): IToDosContainerState => {
+    (state: IState) => {
     return {
         todos: state.todos
     }
@@ -17,11 +13,7 @@ const mapStateToProps =
 
 const connector = connect(mapStateToProps)
 
-type ReduxProps = ConnectedProps<typeof connector>
-
-type Props = ReduxProps & {
-    todos: string[]
-}
+type Props = ConnectedProps<typeof connector>
 
 const ToDosContainerView = 
     ({ todos }: Props): JSX.Element => {
