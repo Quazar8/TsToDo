@@ -16,7 +16,8 @@ const connector = connect(null, mapDispatchToProps)
 type Props = ConnectedProps<typeof connector>
 
 const InputView = ({ addToDo }: Props): JSX.Element => {
-    const [inputVal, setInputVal] = useState('')
+    const defaultState = ""
+    const [inputVal, setInputVal] = useState(defaultState)
 
     const handleChange = 
         (e: ChangeEvent<HTMLInputElement>): void => {
@@ -25,10 +26,14 @@ const InputView = ({ addToDo }: Props): JSX.Element => {
 
     const handleClick = (): void => {
         addToDo(inputVal)
+        setInputVal(defaultState)
     }
     return (
         <section className="input-container">
-            <input onChange={handleChange} type="text" />
+            <input type="text"
+                 onChange={handleChange}
+                 value={inputVal}
+            />
             <input onClick={handleClick} type="submit" value="Add" />
         </section>
     )
