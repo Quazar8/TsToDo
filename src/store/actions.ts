@@ -1,24 +1,37 @@
 enum ActionTypes {
-    ADD_TODO
+    ADD_TODO,
+    DELETE_TODO
 }
 
 interface IAddToDoAction {
     type: ActionTypes.ADD_TODO,
-    payload: string
+    todo: string
+}
+
+interface IDeleteToDoAction {
+    type: ActionTypes.DELETE_TODO,
+    index: number
 }
 
 const addTodoAction = (text: string) : IAddToDoAction => {
     return {
         type: ActionTypes.ADD_TODO,
-        payload: text
+        todo: text
     }
 }
 
-type IActions = IAddToDoAction
+const deleteToDoAction = (index: number): IDeleteToDoAction => {
+    return {
+        type: ActionTypes.DELETE_TODO,
+        index
+    }
+}
+
+type IActions = IAddToDoAction | IDeleteToDoAction
 
 export {
     ActionTypes,
-    IAddToDoAction,
     IActions,
-    addTodoAction
+    addTodoAction,
+    deleteToDoAction
 }
