@@ -1,7 +1,7 @@
 import React, { Dispatch } from 'react'
 import { connect, ConnectedProps } from 'react-redux'
 import { IState } from '../store/store'
-import { deleteToDoAction, IActions } from '../store/actions'
+import { deleteAllAction, deleteToDoAction, IActions } from '../store/actions'
 
 import ToDoRow from './ToDoRow'
 import DeleteAllContainer from './DeleteAllContainer'
@@ -18,6 +18,9 @@ const mapDispatchToProps =
     return {
         deleteTodo: (index: number) => {
             dispatch(deleteToDoAction(index))
+        },
+        deleteAll: () => {
+            dispatch(deleteAllAction())
         }
     }
 }
@@ -26,7 +29,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps)
 type Props = ConnectedProps<typeof connector>
 
 const ToDosContainerView = 
-    ({ todos, deleteTodo }: Props): JSX.Element => {
+    ({ todos, deleteTodo, deleteAll }: Props): JSX.Element => {
 
     const renderTodos = (todo: string, i: number): JSX.Element => {
         return (
@@ -42,7 +45,9 @@ const ToDosContainerView =
         return (
             <section>
                 {todos.map(renderTodos)}
-                <DeleteAllContainer />
+                <DeleteAllContainer
+                    deleteAll={deleteAll} 
+                />
             </section>
         )
     }

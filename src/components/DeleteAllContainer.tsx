@@ -5,14 +5,12 @@ type Props {
 }
 
 const DeleteAllContainer = 
-        ({ deleteAll }: Props): JSX.Element => {
-    return (
-        <div>
-            <button onClick={deleteAll}>
-                Delete All
-            </button>
-        </div>
-    )
-}
+        ({ deleteAll }: Props): JSX.Element => (
+            <div>
+                <button onClick={deleteAll}>
+                    Delete All
+                </button>
+            </div>
+        )
 
 export default DeleteAllContainer
