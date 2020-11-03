@@ -1,9 +1,16 @@
 import React from 'react'
 
-const DeleteAllContainer = (): JSX.Element => {
+type Props {
+    deleteAll: () => void
+}
+
+const DeleteAllContainer = 
+        ({ deleteAll }: Props): JSX.Element => {
     return (
         <div>
-            <button>Delete All</button>
+            <button onClick={deleteAll}>
+                Delete All
+            </button>
         </div>
     )
 }
