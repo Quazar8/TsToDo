@@ -26,6 +26,10 @@ const deleteToDoState =
     return Object.assign({}, state, {todos: newTodos})
 }
 
+const deleteAllState = (state: IState) => {
+    return Object.assign({}, state, { todos:[] })
+}
+
 const todosReducer = (state: IState = defaultState, 
     action: IActions): IState  => {
     switch(action.type) {
@@ -33,6 +37,8 @@ const todosReducer = (state: IState = defaultState,
             return addToDoState(state, action.todo)
         case ActionTypes.DELETE_TODO:
             return deleteToDoState(state, action.index)
+        case ActionTypes.DELETE_ALL:
+            return deleteAllState(state)
         default: 
             return state
     }
