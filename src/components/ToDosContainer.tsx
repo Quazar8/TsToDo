@@ -57,7 +57,6 @@ const ToDosContainerView =
     )
 }
 
-
 const ToDosContainer = connector(ToDosContainerView)
 
 export default ToDosContainer

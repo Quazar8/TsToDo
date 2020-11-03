@@ -1,6 +1,7 @@
 enum ActionTypes {
     ADD_TODO,
-    DELETE_TODO
+    DELETE_TODO,
+    DELETE_ALL
 }
 
 interface IAddToDoAction {
@@ -11,6 +12,10 @@ interface IAddToDoAction {
 interface IDeleteToDoAction {
     type: ActionTypes.DELETE_TODO,
     index: number
+}
+
+interface IDeleteAllAction {
+    type: ActionTypes.DELETE_ALL
 }
 
 const addTodoAction = (text: string) : IAddToDoAction => {
@@ -27,11 +32,18 @@ const deleteToDoAction = (index: number): IDeleteToDoAction => {
     }
 }
 
-type IActions = IAddToDoAction | IDeleteToDoAction
+const deleteAllAction = (): IDeleteAllAction => (
+    { type: ActionTypes.DELETE_ALL }
+)
+                                
+
+type IActions = IAddToDoAction | IDeleteToDoAction 
+                | IDeleteAllAction
 
 export {
     ActionTypes,
     IActions,
     addTodoAction,
-    deleteToDoAction
+    deleteToDoAction,
+    deleteAllAction
 }
