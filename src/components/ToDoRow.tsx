@@ -1,13 +1,19 @@
 import React from 'react'
 
 interface IProps {
-    todo: string
+    todo: string,
+    index: number,
+    deleteTodo: (index: number) => void
 }
 
-const ToDoRow = ({ todo }: IProps): JSX.Element => {
+const ToDoRow = ({ todo, deleteTodo, index }: IProps): JSX.Element => {
+    const handleClick = () => {
+        deleteTodo(index)
+    }
     return (
         <article>
             {todo}
+            <button onClick={handleClick}>X</button>
         </article>
     )
 }

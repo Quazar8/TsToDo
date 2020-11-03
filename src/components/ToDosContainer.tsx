@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Dispatch } from 'react'
 import { connect, ConnectedProps } from 'react-redux'
 import { IState } from '../store/store'
+import { deleteToDoAction, IActions } from '../store/actions'
 
 import ToDoRow from './ToDoRow'
 
@@ -11,16 +12,28 @@ const mapStateToProps =
     }
 }
 
-const connector = connect(mapStateToProps)
+const mapDispatchToProps = 
+            (dispatch: Dispatch<IActions>) => {
+    return {
+        deleteTodo: (index: number) => {
+            dispatch(deleteToDoAction(index))
+        }
+    }
+}
+const connector = connect(mapStateToProps, mapDispatchToProps)
 
 type Props = ConnectedProps<typeof connector>
 
 const ToDosContainerView = 
-    ({ todos }: Props): JSX.Element => {
+    ({ todos, deleteTodo }: Props): JSX.Element => {
 
-    const renderTodos = (todo: string): JSX.Element => {
+    const renderTodos = (todo: string, i: number): JSX.Element => {
         return (
-            <ToDoRow todo={todo} />
+            <ToDoRow 
+                todo={todo}
+                index={i}
+                deleteTodo={deleteTodo} 
+            />
         )
     }
     return (
