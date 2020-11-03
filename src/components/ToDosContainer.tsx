@@ -4,6 +4,7 @@ import { IState } from '../store/store'
 import { deleteToDoAction, IActions } from '../store/actions'
 
 import ToDoRow from './ToDoRow'
+import DeleteAllContainer from './DeleteAllContainer'
 
 const mapStateToProps = 
     (state: IState) => {
@@ -36,10 +37,20 @@ const ToDosContainerView =
             />
         )
     }
+
+    const displayToDos = (): JSX.Element => {
+        return (
+            <section>
+                {todos.map(renderTodos)}
+                <DeleteAllContainer />
+            </section>
+        )
+    }
+
     return (
         <section>
             {todos.length > 0
-             ? todos.map(renderTodos)
+             ? displayToDos()
              : <h1>No todos yet.</h1>
             }
         </section>
