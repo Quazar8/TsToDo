@@ -3,8 +3,7 @@ import { connect, ConnectedProps } from 'react-redux'
 import { IState } from '../store/store'
 import { deleteAllAction, deleteToDoAction, IActions } from '../store/actions'
 
-import ToDoRow from './ToDoRow'
-import DeleteAllContainer from './DeleteAllContainer'
+import ToDosDisplay from './ToDosDisplay'
 
 const mapStateToProps = 
     (state: IState) => {
@@ -31,31 +30,14 @@ type Props = ConnectedProps<typeof connector>
 const ToDosContainerView = 
     ({ todos, deleteTodo, deleteAll }: Props): JSX.Element => {
 
-    const renderTodos = (todo: string, i: number): JSX.Element => {
-        return (
-            <ToDoRow 
-                todo={todo}
-                index={i}
-                deleteTodo={deleteTodo} 
-            />
-        )
-    }
-
-    const displayToDos = (): JSX.Element => {
-        return (
-            <section className="todos-display">
-                {todos.map(renderTodos)}
-                <DeleteAllContainer
-                    deleteAll={deleteAll} 
-                />
-            </section>
-        )
-    }
-
     return (
         <section className="todos-container">
             {todos.length > 0
-             ? displayToDos()
+             ? <ToDosDisplay 
+                    todos = { todos }
+                    deleteTodo = { deleteTodo }
+                    deleteAll = { deleteAll }
+                />
              : <h3>No todos yet.</h3>
             }
         </section>
