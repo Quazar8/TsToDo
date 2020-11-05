@@ -1,5 +1,10 @@
+@use 'app';
+@use 'todos-container';
+@use 'todo-row';
+@use 'delete-all-container';
+
 $b-color: rgb(20, 13, 13);
-$t-color: #f3efef;
+$t-color: #fbfbfb;
 
 %fullWindow {
     width: 100%;
@@ -14,6 +19,8 @@ $t-color: #f3efef;
 
 html {
     @extend %fullWindow;
+    background-color: $b-color;
+    color: $t-color;
 }
 
 body {
@@ -22,4 +29,7 @@ body {
 
 #root {
     @extend %fullWindow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

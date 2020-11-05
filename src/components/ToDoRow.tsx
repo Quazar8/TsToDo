@@ -11,7 +11,7 @@ const ToDoRow = ({ todo, deleteTodo, index }: IProps): JSX.Element => {
         deleteTodo(index)
     }
     return (
-        <article>
+        <article className="todo-row">
             {todo}
             <button onClick={handleClick}>X</button>
         </article>

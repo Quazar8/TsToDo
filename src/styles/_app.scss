@@ -1,0 +1,11 @@
+.app-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 0.5vh solid white;
+    border-radius: 4%;
+    width: 30%;
+    height: 80%;
+    padding: 1% 2%;
+    box-sizing: border-box;
+}

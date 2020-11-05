@@ -3,10 +3,10 @@ import React from 'react'
 import Input from './Input'
 import ToDosContainer from './ToDosContainer'
 
-const App = props => {
+const App = () => {
     return (
         <main className="app-container">
-            <h1>Hello from React</h1>
+            <h1>Todos for today:</h1>
             <Input />
             <ToDosContainer />
         </main>

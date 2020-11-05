@@ -6,11 +6,11 @@ type Props = {
 
 const DeleteAllContainer = 
         ({ deleteAll }: Props): JSX.Element => (
-            <div>
+            <article className="delete-all-container">
                 <button onClick={ deleteAll }>
                     Delete All
                 </button>
-            </div>
+            </article>
         )
 
 export default DeleteAllContainer

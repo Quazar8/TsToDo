@@ -43,7 +43,7 @@ const ToDosContainerView =
 
     const displayToDos = (): JSX.Element => {
         return (
-            <section>
+            <section className="todos-display">
                 {todos.map(renderTodos)}
                 <DeleteAllContainer
                     deleteAll={deleteAll} 
@@ -53,10 +53,10 @@ const ToDosContainerView =
     }
 
     return (
-        <section>
+        <section className="todos-container">
             {todos.length > 0
              ? displayToDos()
-             : <h1>No todos yet.</h1>
+             : <h3>No todos yet.</h3>
             }
         </section>
     )
