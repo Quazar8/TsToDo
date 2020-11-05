@@ -6,6 +6,8 @@ import App from './components/App'
 
 import { store } from './store/store'
 
+import './styles/index.scss'
+
 render(
     <Provider store={store}>
         <App />
