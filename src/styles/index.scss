@@ -1,10 +1,9 @@
+@use 'variables' as v;
 @use 'app';
 @use 'todos-container';
 @use 'todo-row';
 @use 'delete-all-container';
-
-$b-color: rgb(20, 13, 13);
-$t-color: #fbfbfb;
+@use 'input';
 
 %fullWindow {
     width: 100%;
@@ -19,8 +18,9 @@ $t-color: #fbfbfb;
 
 html {
     @extend %fullWindow;
-    background-color: $b-color;
-    color: $t-color;
+    background-color: v.$b-color;
+    color: v.$t-color;
+    font-family: v.$font;
 }
 
 body {

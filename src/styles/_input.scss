@@ -1,0 +1,43 @@
+@use 'variables' as v;
+
+$border-radius: 6%;
+$height-items: 70%; 
+
+.input-container {
+    margin: 3% 0;
+    width: 95%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-container input[type="text"]{
+    padding: 0 0.2vw;
+    width:75%;
+    height: $height-items;
+    font-size: 1.2rem;
+    border-radius: $border-radius;
+    border: 0.2vw solid lightsteelblue;
+    background-color: v.$b-color;
+}
+
+.input-container input[type="text"]:focus {
+    border:0.2vw solid gold;
+    background-color: v.$t-color;
+}
+.input-container input[type="submit"] {
+    width: 17%;
+    height: $height-items;
+    border: 0.15vw solid v.$t-color;
+    font-weight: bold;
+    border-radius: $border-radius;
+    background-color: v.$b-color;
+    color: gold;
+}
+
+.input-container input[type="submit"]:hover {
+    background-color: lightsteelblue;
+    color: v.$b-color;
+    cursor: pointer;
+}

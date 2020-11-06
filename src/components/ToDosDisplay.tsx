@@ -3,14 +3,14 @@ import React from 'react'
 import DeleteAllContainer from './DeleteAllContainer'
 import ToDoRow from './ToDoRow'
 
-type Prop = {
+type Props = {
     todos: string[],
     deleteAll: () => void,
     deleteTodo: (index: number) => void
 }
 
 const ToDosDisplay = ({ todos, 
-                deleteAll, deleteTodo }: Prop): JSX.Element => {
+                deleteAll, deleteTodo }: Props): JSX.Element => {
         const renderTodos = (todo: string, i: number): JSX.Element => {
             return (
                 <ToDoRow 
