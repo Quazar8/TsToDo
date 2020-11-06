@@ -20,11 +20,11 @@ $height-items: 70%;
     border-radius: $border-radius;
     border: 0.2vw solid lightsteelblue;
     background-color: v.$b-color;
+    color: v.$t-color;
 }
 
 .input-container input[type="text"]:focus {
     border:0.2vw solid gold;
-    background-color: v.$t-color;
 }
 .input-container input[type="submit"] {
     width: 17%;
