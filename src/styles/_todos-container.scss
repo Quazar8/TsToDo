@@ -2,10 +2,17 @@
     width: 98%;
     font-size: 1.6rem;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.todos-container::-webkit-scrollbar {
+    display: none;
 }
 
 .todos-display {
     width: 100%;
-    height: 100%; 
+ ;
 }
+
