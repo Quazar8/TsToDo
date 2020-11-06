@@ -1,4 +1,32 @@
+@use 'variables' as v;
+
 .todo-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    word-break: break-word;
+    margin: 0 0 5% 0;
+    padding: 1% 0 0 2%;
+    border-bottom: 0.1vw solid gold;
 }
+
+.todo-row span {
+    display: block;
+    height: 100%;
+    width: 70%;
+}
+
+.todo-row button {
+    height: 2.3vw;
+    width: 3.5vw;
+    color: gold;
+    background-color: v.$b-color;
+    font-weight: bold;
+}
+
+.todo-row button:hover {
+    background-color: red;
+    color: v.$t-color;
+    cursor: pointer;
+}
+
